@@ -1,5 +1,5 @@
-#ifndef TENACITAS_LIB_TESTER_H
-#define TENACITAS_LIB_TESTER_H
+#ifndef TENACITAS_LIB_TEST_ALG_TESTER_H
+#define TENACITAS_LIB_TEST_ALG_TESTER_H
 
 /// \copyright This file is under GPL 3 license. Please read the \p LICENSE file
 /// at the root of \p tenacitas directory
@@ -12,7 +12,7 @@
 #include <tenacitas.lib.program/alg/options.h>
 
 /// \brief classes to help creating testing programs to test other classes
-namespace tenacitas::lib::tester::alg {
+namespace tenacitas::lib::test::alg {
 
 /// \brief Runs a test
 ///
@@ -80,7 +80,7 @@ namespace tenacitas::lib::tester::alg {
 ///}
 ///
 /// \endcode
-template <bool use = true> struct test {
+template <bool use = true> struct tester {
 
   /// \brief Constructor
   /// If '--desc' is passed, \p operator() will print a description of the
@@ -92,9 +92,9 @@ template <bool use = true> struct test {
   /// \param argc number of strings in \p argv
   ///
   /// \param argv parameters passed to the program
-  test(int argc, char **argv,
-       std::initializer_list<program::alg::options::name> &&p_mandatory =
-           {}) noexcept
+  tester(int argc, char **argv,
+         std::initializer_list<program::alg::options::name> &&p_mandatory =
+             {}) noexcept
       : m_argc(argc), m_argv(argv) {
     m_pgm_name = m_argv[0];
 
@@ -127,19 +127,19 @@ template <bool use = true> struct test {
   }
 
   /// \brief Default constructor not allowed
-  test() = delete;
+  tester() = delete;
 
   /// \brief Copy constructor not allowed
-  test(const test &) = delete;
+  tester(const tester &) = delete;
 
   /// \brief Copy constructor not allowed
-  test(test &&) = delete;
+  tester(tester &&) = delete;
 
   /// \brief Copy assignment not allowed
-  test &operator=(const test &) = delete;
+  tester &operator=(const tester &) = delete;
 
   /// \brief Move assignment not allowed
-  test &operator=(test &&) = delete;
+  tester &operator=(tester &&) = delete;
 
   /// \brief Executes the test
   ///  If the test passes, the message "SUCCESS for <name>" will be
@@ -265,6 +265,6 @@ private:
   program::alg::options m_options;
 };
 
-} // namespace tenacitas::lib::tester::alg
+} // namespace tenacitas::lib::test::alg
 
 #endif

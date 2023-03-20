@@ -9,7 +9,7 @@
 #include <string>
 
 #include <tenacitas.lib.program/alg/options.h>
-#include <tenacitas.lib.tester/alg/tester.h>
+#include <tenacitas.lib.test/alg/tester.h>
 
 using namespace tenacitas::lib;
 
@@ -39,7 +39,7 @@ struct test_error {
 
 int main(int argc, char **argv) {
   try {
-    tester::alg::test _test(argc, argv);
+    test::alg::tester _test(argc, argv);
     run_test(_test, test_ok);
     run_test(_test, test_fail);
     run_test(_test, test_error);
