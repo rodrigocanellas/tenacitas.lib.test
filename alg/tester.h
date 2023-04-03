@@ -16,7 +16,7 @@ namespace tenacitas::lib::test::alg {
 
 /// \brief Runs a test
 ///
-/// \param tester is an instance of tenacitas::lib::tester::alg::test defined
+/// \param tester is an instance of tenacitas::lib::test::alg::tester defined
 /// below
 ///
 /// \param test is the name of a class that implements
@@ -31,7 +31,7 @@ namespace tenacitas::lib::test::alg {
 
 /// \brief The test struct executes tests implemented in classes
 ///
-/// \tparam use makes tenacitas::lib::tester::alg::test to be compiled only if
+/// \tparam use makes tenacitas::lib::test::alg::tester to be compiled only if
 /// actually used
 ///
 /// \code
@@ -68,7 +68,7 @@ namespace tenacitas::lib::test::alg {
 ///
 ///  int main(int argc, char **argv) {
 ///  try {
-///    tester::alg::test _tester(argc, argv);
+///    test::alg::tester _tester(argc, argv);
 ///
 ///    run_test(_tester, test_ok);
 ///    run_test(_tester, test_fail);
